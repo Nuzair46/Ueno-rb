@@ -1,0 +1,6 @@
+domain: <%= ENV["DOMAIN"] || "example.com" %> # Domain where requests are sent from and logs are sent to
+ueno_token: <%= ENV["UENO_TOKEN"] || "test_token" %>
+
+dokku:
+  ssh_host_name: <%= ENV["DOKKU_SSH_HOST_NAME"] || "dokku@example.com" %>
+  ssh_private_key: <%= ENV["DOKKU_SSH_PRIVATE_KEY"] || "default_private_key" %>

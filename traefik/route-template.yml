@@ -1,0 +1,12 @@
+http:
+  routers:
+    <%= app_name %>:
+      rule: "Host(`<%= app_name %>.<%= domain %>`)"
+      service: <%= app_name %>-service
+      tls:
+        certResolver: myresolver
+  services:
+    <%= app_name %>-service:
+      loadBalancer:
+        servers:
+          - url: "<%= url %>"

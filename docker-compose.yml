@@ -1,0 +1,45 @@
+services:
+  ueno:
+    build:
+      context: .
+      args:
+        RAILS_ENV: ${RAILS_ENV}
+    ports:
+      - "3000:3000"
+    environment:
+      - RAILS_ENV=${RAILS_ENV}
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - redis
+    command: bundle exec puma -C config/puma.rb
+    networks:
+      - traefik_network
+    volumes:
+      - ./traefik:/app/traefik
+
+  sidekiq:
+    build:
+      context: .
+      args:
+        RAILS_ENV: ${RAILS_ENV}
+    depends_on:
+      - redis
+    environment:
+      - RAILS_ENV=${RAILS_ENV}
+      - REDIS_URL=redis://redis:6379/0
+    command: bundle exec sidekiq -e production
+    networks:
+      - traefik_network
+    volumes:
+      - ./traefik:/app/traefik
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6380:6379"
+    networks:
+      - traefik_network
+
+networks:
+  traefik_network:
+    external: true

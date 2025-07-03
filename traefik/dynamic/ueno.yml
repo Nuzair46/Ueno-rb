@@ -1,0 +1,12 @@
+http:
+  routers:
+    ueno:
+      rule: "Host(`ueno.brand.site`)"
+      service: ueno-service
+      tls:
+        certResolver: myresolver
+  services:
+    ueno-service:
+      loadBalancer:
+        servers:
+          - url: "http://ueno:3000"
