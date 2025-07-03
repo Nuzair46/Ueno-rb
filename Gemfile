@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby File.read(File.expand_path(".ruby-version", __dir__)).strip
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.2.1", ">= 7.2.1.2"
+gem "rails", "~> 8.0.2"
 
 # For background jobs
 gem "sidekiq"
