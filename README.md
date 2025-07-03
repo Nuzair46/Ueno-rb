@@ -93,7 +93,7 @@ To deploy the API, use Dokku or any other deployment platform compatible with Ra
 
 ## Contributing
 
-Contributions are welcome! Please fork the repository and submit a pull request with your changes.
+Contributions are welcome!
 
 ## License
 
@@ -101,4 +101,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Support
 
-For issues or questions, please open an issue in the repository or contact the maintainers.
+I probably won't support this project anymore. If you have any issues, feel free to open an issue on GitHub, but I might not respond promptly.
